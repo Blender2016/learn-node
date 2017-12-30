@@ -4,6 +4,8 @@ const hbs = require("hbs");
 
 var app = express();     // to make express app.
 
+const port = process.env.PORT || 3000;
+
 app.use((req,res,next)=>{
     var now = new Date().toString();
     var log = `${now}: ${req.method} ${req.url}`;
@@ -45,7 +47,7 @@ app.get('/about',(req,res)=>{
     });
 });
 
-app.listen(3000, function() {
-    console.log("The frontend server is running on port 3000!");
+app.listen(port, function() {
+    console.log(`"The frontend server is running on port ${port}!"`);
 });
 
